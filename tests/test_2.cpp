@@ -15,7 +15,6 @@ TEST(UnicStack,EmptyUnicStack)
     EXPECT_THROW(my_stack.pop(),PopFromEmptyStack);
     EXPECT_THROW(my_stack.head(),StackIsEmpty);
     EXPECT_THROW(my_stack.tail(),StackIsEmpty);
-    EXPECT_EQ(my_stack.size(),0u);
 }
 
 TEST(UnicStack,EmptyUnicStackPop)
@@ -49,18 +48,6 @@ TEST(UnicStack,push_test_2)
 
     EXPECT_EQ(my_stack.head(),true);
     EXPECT_EQ(my_stack.tail(),1);
-}
-
-TEST(UnicStack,size_test)
-{
-    UnicStack<int> my_stack;
-
-    for (size_t index = 0;index<1000;++index)
-        {
-            my_stack.push(index);
-        }
-
-    EXPECT_EQ(my_stack.size(),1000);
 }
 
 TEST(UnicStack,pop_test)

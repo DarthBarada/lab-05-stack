@@ -9,7 +9,6 @@ class AStack
     protected:
 		Container<T>* stack_begin = nullptr;
 		Container<T>* stack_end = nullptr;
-		size_t quantity = 0u;
 
 	public:
 
@@ -24,7 +23,6 @@ class AStack
                         stack_begin = stack_begin->prev;	   // Begin should indicate on previous object
 
 						delete temp_pointer;
-						--quantity;
 					}
 			}
 
@@ -41,17 +39,16 @@ class AStack
                 Container<T>* temp = new Container<T> { std::forward<T>( value ), stack_begin };
                 stack_begin = temp;
             }
-            ++ quantity;
         }
 
     // Module allows user get information from stack
-		
+
 		// Function returns head data
 		const T& head()
 			{
 				if( stack_begin == nullptr )
 					{
-						throw StackIsEmpty("No head found. Stack size is " + quantity );
+						throw StackIsEmpty("No head found.");
 					}
 				return stack_begin->data;
 			}
@@ -60,13 +57,8 @@ class AStack
 			{
 				if( stack_end == nullptr )
 					{
-						throw StackIsEmpty("No tail found. Stack size is " + quantity );
+						throw StackIsEmpty("No tail found.");
 					}
 				return stack_end->data;
-			}
-		// Function returns size of stack
-		size_t size() const
-			{
-				return quantity;
 			}
 	};

@@ -20,7 +20,6 @@ class UnicStack : public AStack<T>
 						Container<T>* temp = new Container<T> { std::forward<Args>( value ) ..., AStack<T>::stack_begin };
                         AStack<T>::stack_begin = temp;
 					}
-				++ AStack<T>::quantity;
 			}
 
 		T pop()
@@ -35,8 +34,6 @@ class UnicStack : public AStack<T>
 
                 T info = std::move( temp_pointer->data );
                 delete temp_pointer;
-                -- AStack<T>::quantity;
-
                 return info;
 			}
 	};

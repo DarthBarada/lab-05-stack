@@ -18,7 +18,6 @@ class Stack: public AStack<T>
                     Container<T>* temp = new Container<T> { value, AStack<T>::stack_begin };
                     AStack<T>::stack_begin = temp;
                 }
-            ++AStack<T>::quantity;
         }
 		// Function delete top of stack
 		void pop()
@@ -29,9 +28,8 @@ class Stack: public AStack<T>
 					}
 				else if(  AStack<T>::stack_end != nullptr )
 					{
-                        -- AStack<T>::quantity;
 						auto temp_pointer =  AStack<T>::stack_begin; // Create new pointer on object
-                        AStack<T>::stack_begin =  AStack<T>::stack_begin->prev;	   // Begin should indicate on previous object
+            AStack<T>::stack_begin =  AStack<T>::stack_begin->prev;	   // Begin should indicate on previous object
 
 						delete temp_pointer;
 					}
